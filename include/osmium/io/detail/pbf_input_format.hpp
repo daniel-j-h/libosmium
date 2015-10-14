@@ -251,7 +251,7 @@ namespace osmium {
 
                 ~PBFParser() = default;
 
-                bool operator()() {
+                void operator()() {
                     osmium::thread::set_thread_name("_osmium_pbf_in");
 
                     try {
@@ -265,8 +265,6 @@ namespace osmium {
                         send_end_of_file(m_output_queue);
                         drain_queue(m_input_queue);
                     }
-
-                    return true;
                 }
 
             }; // class PBFParser
